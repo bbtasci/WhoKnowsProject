@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func setViewControllerBackground (redCGFloat: CGFloat, greenCGFloat: CGFloat, blueCGFloat: CGFloat, alphaCGFloat: CGFloat) {
-        self.view.backgroundColor = UIColor(red: redCGFloat, green: greenCGFloat, blue: blueCGFloat, alpha: alphaCGFloat)
+    func eveningHushBlueBackground() {
+        // View Controller Background Colors
+        // Red: 119 - Green: 141 - Blue: 169 - EVENING HUSH BLUE
+        self.view.backgroundColor = UIColor( red: CGFloat(65/255.0), green: CGFloat(90/255.0), blue: CGFloat(119/255.0), alpha: CGFloat(1.0))
     }
 }

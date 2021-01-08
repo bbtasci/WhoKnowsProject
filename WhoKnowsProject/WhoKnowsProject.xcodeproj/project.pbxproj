@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,12 +14,17 @@
 		4A387E5125A5EC03004B4335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A387E5025A5EC03004B4335 /* Assets.xcassets */; };
 		4A387E5425A5EC03004B4335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A387E5225A5EC03004B4335 /* LaunchScreen.storyboard */; };
 		4A387E6225A6DD9D004B4335 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A387E6125A6DD9D004B4335 /* UIViewExtension.swift */; };
-		4A8F167425A6E21700CC979F /* HighscorePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167325A6E21700CC979F /* HighscorePageViewController.swift */; };
+		4A8F167425A6E21700CC979F /* HighScorePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167325A6E21700CC979F /* HighScorePageViewController.swift */; };
 		4A8F167725A6E22800CC979F /* AppSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167625A6E22800CC979F /* AppSettingsPageViewController.swift */; };
 		4A8F167A25A6E23D00CC979F /* NewGameSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167925A6E23D00CC979F /* NewGameSettingsPageViewController.swift */; };
 		4A8F167E25A6E2EF00CC979F /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167D25A6E2EF00CC979F /* UIViewControllerExtension.swift */; };
 		4A8F168425A6EA5700CC979F /* NewGamePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F168325A6EA5600CC979F /* NewGamePageViewController.swift */; };
 		4A8F168B25A7026B00CC979F /* NewScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F168A25A7026B00CC979F /* NewScoreViewController.swift */; };
+		4ACEAD2025A7379800384604 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD1F25A7379800384604 /* UIButtonExtension.swift */; };
+		4ACEAD2325A73A6600384604 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD2225A73A6600384604 /* UILabelExtension.swift */; };
+		4ACEAD2625A82ED600384604 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD2525A82ED600384604 /* CategoryModel.swift */; };
+		4ACEAD2925A82F3600384604 /* TriviaCategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD2825A82F3600384604 /* TriviaCategoriesModel.swift */; };
+		4ACEAD2D25A8369C00384604 /* ServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD2C25A8369C00384604 /* ServiceCall.swift */; };
 		72BF0CDB433CB5B7DC0825A5 /* Pods_WhoKnowsProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845DFA0895146FA6871A9842 /* Pods_WhoKnowsProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,12 +38,17 @@
 		4A387E5325A5EC03004B4335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A387E5525A5EC03004B4335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A387E6125A6DD9D004B4335 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		4A8F167325A6E21700CC979F /* HighscorePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscorePageViewController.swift; sourceTree = "<group>"; };
+		4A8F167325A6E21700CC979F /* HighScorePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScorePageViewController.swift; sourceTree = "<group>"; };
 		4A8F167625A6E22800CC979F /* AppSettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsPageViewController.swift; sourceTree = "<group>"; };
 		4A8F167925A6E23D00CC979F /* NewGameSettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameSettingsPageViewController.swift; sourceTree = "<group>"; };
 		4A8F167D25A6E2EF00CC979F /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		4A8F168325A6EA5600CC979F /* NewGamePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGamePageViewController.swift; sourceTree = "<group>"; };
 		4A8F168A25A7026B00CC979F /* NewScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScoreViewController.swift; sourceTree = "<group>"; };
+		4ACEAD1F25A7379800384604 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4ACEAD2225A73A6600384604 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		4ACEAD2525A82ED600384604 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		4ACEAD2825A82F3600384604 /* TriviaCategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaCategoriesModel.swift; sourceTree = "<group>"; };
+		4ACEAD2C25A8369C00384604 /* ServiceCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCall.swift; sourceTree = "<group>"; };
 		845DFA0895146FA6871A9842 /* Pods_WhoKnowsProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoKnowsProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE38DF0D44CCFA768A018259 /* Pods-WhoKnowsProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoKnowsProject.release.xcconfig"; path = "Target Support Files/Pods-WhoKnowsProject/Pods-WhoKnowsProject.release.xcconfig"; sourceTree = "<group>"; };
 		B83460EC6D8A4EA16D27E063 /* Pods-WhoKnowsProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoKnowsProject.debug.xcconfig"; path = "Target Support Files/Pods-WhoKnowsProject/Pods-WhoKnowsProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +95,7 @@
 		4A387E4625A5EC03004B4335 /* WhoKnowsProject */ = {
 			isa = PBXGroup;
 			children = (
+				4ACEAD2B25A8366200384604 /* Resources */,
 				4A8F168725A6FE7700CC979F /* Cells */,
 				4A387E6025A6DD84004B4335 /* Extensions */,
 				4A387E5F25A5EC25004B4335 /* Model */,
@@ -114,7 +125,7 @@
 				4A8F167925A6E23D00CC979F /* NewGameSettingsPageViewController.swift */,
 				4A8F168325A6EA5600CC979F /* NewGamePageViewController.swift */,
 				4A8F168A25A7026B00CC979F /* NewScoreViewController.swift */,
-				4A8F167325A6E21700CC979F /* HighscorePageViewController.swift */,
+				4A8F167325A6E21700CC979F /* HighScorePageViewController.swift */,
 				4A8F167625A6E22800CC979F /* AppSettingsPageViewController.swift */,
 			);
 			path = Controller;
@@ -123,6 +134,8 @@
 		4A387E5F25A5EC25004B4335 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4ACEAD2525A82ED600384604 /* CategoryModel.swift */,
+				4ACEAD2825A82F3600384604 /* TriviaCategoriesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +145,8 @@
 			children = (
 				4A387E6125A6DD9D004B4335 /* UIViewExtension.swift */,
 				4A8F167D25A6E2EF00CC979F /* UIViewControllerExtension.swift */,
+				4ACEAD1F25A7379800384604 /* UIButtonExtension.swift */,
+				4ACEAD2225A73A6600384604 /* UILabelExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -151,13 +166,20 @@
 			path = "High Scores Table View Cell";
 			sourceTree = "<group>";
 		};
+		4ACEAD2B25A8366200384604 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4ACEAD2C25A8369C00384604 /* ServiceCall.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		84B184D2FFA7E004E5CEF5FF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				B83460EC6D8A4EA16D27E063 /* Pods-WhoKnowsProject.debug.xcconfig */,
 				AE38DF0D44CCFA768A018259 /* Pods-WhoKnowsProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -275,15 +297,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ACEAD2625A82ED600384604 /* CategoryModel.swift in Sources */,
 				4A8F168B25A7026B00CC979F /* NewScoreViewController.swift in Sources */,
-				4A8F167425A6E21700CC979F /* HighscorePageViewController.swift in Sources */,
+				4ACEAD2025A7379800384604 /* UIButtonExtension.swift in Sources */,
+				4A8F167425A6E21700CC979F /* HighScorePageViewController.swift in Sources */,
 				4A387E4C25A5EC03004B4335 /* HomePageViewController.swift in Sources */,
+				4ACEAD2325A73A6600384604 /* UILabelExtension.swift in Sources */,
 				4A8F168425A6EA5700CC979F /* NewGamePageViewController.swift in Sources */,
 				4A8F167725A6E22800CC979F /* AppSettingsPageViewController.swift in Sources */,
 				4A387E6225A6DD9D004B4335 /* UIViewExtension.swift in Sources */,
 				4A8F167E25A6E2EF00CC979F /* UIViewControllerExtension.swift in Sources */,
 				4A8F167A25A6E23D00CC979F /* NewGameSettingsPageViewController.swift in Sources */,
 				4A387E4825A5EC03004B4335 /* AppDelegate.swift in Sources */,
+				4ACEAD2D25A8369C00384604 /* ServiceCall.swift in Sources */,
+				4ACEAD2925A82F3600384604 /* TriviaCategoriesModel.swift in Sources */,
 				4A387E4A25A5EC03004B4335 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

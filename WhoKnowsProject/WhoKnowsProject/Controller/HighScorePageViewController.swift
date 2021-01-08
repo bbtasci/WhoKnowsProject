@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HighscorePageViewController: UIViewController {
+class HighScorePageViewController: UIViewController {
     
     // MARK: - OUTLETS
     
