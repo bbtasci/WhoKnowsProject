@@ -11,31 +11,19 @@ class NewGamePageViewController: UIViewController {
 
     // MARK: - OUTLETS
     
-    @IBOutlet weak var categoryLabel: UILabel!
-    
+    @IBOutlet weak var categoryLabel: BaseLightBlueLabel!
     @IBOutlet weak var questionNumberLabel: UILabel!
+    @IBOutlet weak var questionLabel: BaseDarkBlueLabel!
     
-    @IBOutlet weak var questionLabel: UILabel!
-    
-    
-    
-    @IBOutlet weak var firstAnswerButton: UIButton!
-    
-    @IBOutlet weak var secondAnswerButton: UIButton!
-    
-    @IBOutlet weak var thirdAnswerButton: UIButton!
-    
-    @IBOutlet weak var fourthAnswerButton: UIButton!
-    
+    @IBOutlet weak var firstAnswerButton: BaseWhiteButton!
+    @IBOutlet weak var secondAnswerButton: BaseWhiteButton!
+    @IBOutlet weak var thirdAnswerButton: BaseWhiteButton!
+    @IBOutlet weak var fourthAnswerButton: BaseWhiteButton!
     
     @IBOutlet weak var totalPointsTitleLabel: UILabel!
-    
     @IBOutlet weak var totalPointsLabel: UILabel!
-    
     @IBOutlet weak var timerTitleLabel: UILabel!
-    
     @IBOutlet weak var timerImageView: UIImageView!
-    
     @IBOutlet weak var timerLabel: UILabel!
     
     

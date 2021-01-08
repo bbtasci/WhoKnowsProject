@@ -8,22 +8,22 @@
 import UIKit
 import Alamofire
 
-class NewGameSettingsPageViewController: UIViewController {
+class NewGameSettingsPageViewController: BaseFadedBlueViewController {
     
     // MARK: - OUTLETS
     
-    @IBOutlet weak var newGameInfoLabel: UILabel!
+    @IBOutlet weak var newGameInfoLabel: BaseLightBlueLabel!
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: BaseLightBlueLabel!
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryLabel: BaseLightBlueLabel!
     @IBOutlet weak var categoryPickerView: UIPickerView!
     
-    @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var difficultyLabel: BaseLightBlueLabel!
     @IBOutlet weak var difficultyTextField: UITextField!
     
-    @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var startButton: BaseBlueButton!
     
     // MARK: - PROPERTIES
     
@@ -44,22 +44,26 @@ class NewGameSettingsPageViewController: UIViewController {
     
     // MARK: - PREPARE UI
     func prepareUI() {
-        prepareOutletsAndViewBackgroundColor()
+        prepareLayers()
         prepareCategoryPickerView()
         prepareDifficultyPickerView()
     }
     
-    func prepareOutletsAndViewBackgroundColor() {
-        newGameInfoLabel.isCarterBlueLabel()
-        nameLabel.isCarterBlueLabel()
-        categoryLabel.isCarterBlueLabel()
-        difficultyLabel.isCarterBlueLabel()
-        startGameButton.isTrappedDarknessBlueButton()
+    func prepareLayers() {
+        newGameInfoLabel.prepareLabel()
+        newGameInfoLabel.setLabelText(text: "Enter your name and \n choose best options for you.")
         
-        // Screen Background Color
-        eveningHushBlueBackground()
-        // 119 - 141 - 169
-        //self.view.backgroundColor = UIColor(red: 119/255, green: 141/255, blue: 169/255, alpha: 1.0)
+        nameLabel.prepareLabel()
+        nameLabel.setLabelText(text: "Name")
+        
+        categoryLabel.prepareLabel()
+        categoryLabel.setLabelText(text: "Category")
+        
+        difficultyLabel.prepareLabel()
+        difficultyLabel.setLabelText(text: "Difficulty")
+        
+        startButton.prepareButton()
+        startButton.setButtonTitle(title: "START")
     }
     
     func prepareCategoryPickerView() {
@@ -90,7 +94,7 @@ class NewGameSettingsPageViewController: UIViewController {
     }
     // MARK: - ACTIONS
     
-    @IBAction func startGameButtonTouched(_ sender: Any) {
+    @IBAction func startButtonTouched(_ sender: Any) {
     }
     
 }

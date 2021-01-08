@@ -7,15 +7,15 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var informationLabel: UILabel!
-    @IBOutlet weak var startGameButton: UIButton!
-    @IBOutlet weak var highScoresButton: UIButton!
-    @IBOutlet weak var gameSettingsButton: UIButton!
+    @IBOutlet weak var informationLabel: BaseLightBlueLabel!
+    @IBOutlet weak var goToQuizButton: BaseBlueButton!
+    @IBOutlet weak var highScoresButton: BaseBlueButton!
+    @IBOutlet weak var gameSettingsButton: BaseBlueButton!
     
     // MARK: - PROPERTIES
     
@@ -30,22 +30,23 @@ class HomePageViewController: UIViewController {
     // MARK: - PREPARE UI
     
     func prepareUI() {
-        prepareOutletsAndViewBackgroundColor()
+        prepareLayers()
         prepareNavigationItems()
     }
-    func prepareOutletsAndViewBackgroundColor() {
-        //logoImageView.image = ""
-        informationLabel.isCarterBlueLabel()
-        informationLabel.text = "WHO KNOWS?"
-        startGameButton.isTrappedDarknessBlueButton()
-        startGameButton.setTitle("Start-Quiz", for: .normal)
-        highScoresButton.isTrappedDarknessBlueButton()
-        highScoresButton.setTitle("High Scores", for: .normal)
-        gameSettingsButton.isTrappedDarknessBlueButton()
-        gameSettingsButton.setTitle("Settings", for: .normal)
+    func prepareLayers() {
+        logoImageView.image = UIImage(named: "whoknows-label")
         
-        // Screen Background Color
-        eveningHushBlueBackground()
+        informationLabel.prepareLabel()
+        informationLabel.setLabelText(text: "Lets see how far you can go! \n Start quiz when you are ready.")
+        
+        goToQuizButton.prepareButton()
+        goToQuizButton.setButtonTitle(title: "GO TO QUIZ")
+        
+        highScoresButton.prepareButton()
+        highScoresButton.setButtonTitle(title: "HIGH SCORES")
+        
+        gameSettingsButton.prepareButton()
+        gameSettingsButton.setButtonTitle(title: "SETTINGS")
     }
     
     func prepareNavigationItems() {
@@ -55,7 +56,7 @@ class HomePageViewController: UIViewController {
     
     // MARK: - ACTIONS
     
-    @IBAction func startGameButtonTouched(_ sender: Any) {
+    @IBAction func goToQuizButtonTouched(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let newGameSettingsPageViewController = storyboard.instantiateViewController(identifier: "NewGameSettingsPageViewController") as! NewGameSettingsPageViewController
         self.navigationController?.pushViewController(newGameSettingsPageViewController, animated: true)
@@ -69,10 +70,9 @@ class HomePageViewController: UIViewController {
     
     @IBAction func gameSettingsButtonTouched(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newGameSettingsPageViewController = storyboard.instantiateViewController(identifier: "NewGameSettingsPageViewController") as! NewGameSettingsPageViewController
-        self.navigationController?.pushViewController(newGameSettingsPageViewController, animated: true)
+        let appSettingsPageViewController = storyboard.instantiateViewController(identifier: "AppSettingsPageViewController") as! AppSettingsPageViewController
+        self.navigationController?.pushViewController(appSettingsPageViewController, animated: true)
     }
-    
     
 }
 

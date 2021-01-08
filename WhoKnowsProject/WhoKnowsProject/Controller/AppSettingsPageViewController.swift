@@ -11,10 +11,10 @@ class AppSettingsPageViewController: UIViewController {
 
     // MARK: - OUTLETS
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: BaseLightBlueLabel!
     @IBOutlet weak var soundLabel: UILabel!
     @IBOutlet weak var soundSwitch: UISwitch!
-    @IBOutlet weak var resetSettingsButton: UIButton!
+    @IBOutlet weak var resetSettingsButton: BaseBlueButton!
     
     // MARK: - PROPERTIES
     
@@ -24,17 +24,29 @@ class AppSettingsPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        prepareUI()
     }
     
     // MARK: - PREPARE UI
     
+    func prepareUI() {
+        prepareLayers()
+    }
+    
+    func prepareLayers() {
+        titleLabel.prepareLabel()
+        titleLabel.setLabelText(text: "SETTINGS")
+        
+        resetSettingsButton.prepareButton()
+        resetSettingsButton.setButtonTitle(title: "Reset Defaults")
+    }
     
     
     // MARK: - ACTIONS
     
     @IBAction func soundSwitchChanged(_ sender: Any) {
+        // fon müziğini kapat
+        // arkaplan animasyonunu kapat
     }
     
     @IBAction func resetSettingsButtonTouched(_ sender: Any) {

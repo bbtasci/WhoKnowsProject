@@ -11,16 +11,14 @@ class NewScoreViewController: UIViewController {
 
     // MARK: - OUTLETS
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var trueTitleLabel: UILabel!
-    @IBOutlet weak var trueNumberLabel: UILabel!
-    @IBOutlet weak var falseTitleLabel: UILabel!
-    @IBOutlet weak var falseNumberLabel: UILabel!
-    @IBOutlet weak var totalPointsTitleLabel: UILabel!
-    @IBOutlet weak var totalPointsLabel: UILabel!
-    @IBOutlet weak var goToHomePageButton: UIButton!
-    
-    
+    @IBOutlet weak var titleLabel: BaseLightBlueLabel!
+    @IBOutlet weak var trueTitleLabel: BaseDarkBlueLabel!
+    @IBOutlet weak var trueNumberLabel: BaseDarkBlueLabel!
+    @IBOutlet weak var falseTitleLabel: BaseDarkBlueLabel!
+    @IBOutlet weak var falseNumberLabel: BaseDarkBlueLabel!
+    @IBOutlet weak var totalPointsTitleLabel: BaseDarkBlueLabel!
+    @IBOutlet weak var totalPointsLabel: BaseDarkBlueLabel!
+    @IBOutlet weak var goToHomePageButton: BaseBlueButton!
     
     // MARK: - PROPERTIES
     
@@ -30,8 +28,35 @@ class NewScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareUI()
 
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - PREPARE UI
+    
+    func prepareUI() {
+        prepareLayers()
+    }
+    
+    func prepareLayers() {
+        titleLabel.prepareLabel()
+        titleLabel.setLabelText(text: "END OF THE QUIZ")
+        
+        trueTitleLabel.prepareLabel()
+        trueTitleLabel.setLabelText(text: "True Answers")
+        
+        trueNumberLabel.prepareLabel()
+        
+        falseTitleLabel.prepareLabel()
+        falseTitleLabel.setLabelText(text: "False Answers")
+        falseNumberLabel.prepareLabel()
+        
+        totalPointsLabel.prepareLabel()
+        totalPointsLabel.setLabelText(text: "Total Points")
+        
+        goToHomePageButton.prepareButton()
+        goToHomePageButton.setButtonTitle(title: "Go To Home Page")
     }
     
     // MARK: - ACTIONS
