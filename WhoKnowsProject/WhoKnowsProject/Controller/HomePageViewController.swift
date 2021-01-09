@@ -25,41 +25,42 @@ class HomePageViewController: BaseFadedBlueViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
+        //setViewControllerBackgroundColor()
     }
 
     // MARK: - PREPARE UI
     
     func prepareUI() {
         prepareLayers()
-        prepareNavigationItems()
+        prepareNavigationItems(title: "WHO KNOWS", backButtonTitle: "Home")
     }
     func prepareLayers() {
-        logoImageView.image = UIImage(named: "whoknows-label")
+        logoImageView.image = UIImage(named: "WhoKnows-OpeningLabel")
         
         informationLabel.prepareLabel()
-        informationLabel.setLabelText(text: "Lets see how far you can go! \n Start quiz when you are ready.")
+        informationLabel.setLabelText(text: "Lets see how far you can go!")
         
-        goToQuizButton.prepareButton()
+        goToQuizButton.prepareBlueButton()
         goToQuizButton.setButtonTitle(title: "GO TO QUIZ")
         
-        highScoresButton.prepareButton()
+        highScoresButton.prepareBlueButton()
         highScoresButton.setButtonTitle(title: "HIGH SCORES")
         
-        gameSettingsButton.prepareButton()
+        gameSettingsButton.prepareBlueButton()
         gameSettingsButton.setButtonTitle(title: "SETTINGS")
     }
     
-    func prepareNavigationItems() {
-        navigationItem.title = "WHO KNOWS?"
-        navigationItem.backButtonTitle = "Back"
-    }
-    
+//    func prepareNavigationItems() {
+//        navigationItem.title = "WHO KNOWS"
+//        navigationItem.backButtonTitle = "Home"
+//    }
+//
     // MARK: - ACTIONS
     
     @IBAction func goToQuizButtonTouched(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newGameSettingsPageViewController = storyboard.instantiateViewController(identifier: "NewGameSettingsPageViewController") as! NewGameSettingsPageViewController
-        self.navigationController?.pushViewController(newGameSettingsPageViewController, animated: true)
+        let quizSettingsPageViewController = storyboard.instantiateViewController(identifier: "QuizSettingsPageViewController") as! QuizSettingsPageViewController
+        self.navigationController?.pushViewController(quizSettingsPageViewController, animated: true)
     }
     
     @IBAction func highScoresButtonTouched(_ sender: Any) {

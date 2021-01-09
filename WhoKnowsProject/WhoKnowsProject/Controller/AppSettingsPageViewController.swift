@@ -7,14 +7,16 @@
 
 import UIKit
 
-class AppSettingsPageViewController: UIViewController {
+class AppSettingsPageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
-    @IBOutlet weak var titleLabel: BaseLightBlueLabel!
     @IBOutlet weak var soundLabel: UILabel!
     @IBOutlet weak var soundSwitch: UISwitch!
+    @IBOutlet weak var backgroundEffectLabel: UILabel!
+    @IBOutlet weak var backgroundEffectSwitch: UISwitch!
     @IBOutlet weak var resetSettingsButton: BaseBlueButton!
+    
     
     // MARK: - PROPERTIES
     
@@ -24,6 +26,7 @@ class AppSettingsPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setViewControllerBackgroundColor()
         prepareUI()
     }
     
@@ -31,14 +34,13 @@ class AppSettingsPageViewController: UIViewController {
     
     func prepareUI() {
         prepareLayers()
+        prepareNavigationItems(title: "SETTINGS", backButtonTitle: "Home")
+        
     }
     
     func prepareLayers() {
-        titleLabel.prepareLabel()
-        titleLabel.setLabelText(text: "SETTINGS")
-        
-        resetSettingsButton.prepareButton()
-        resetSettingsButton.setButtonTitle(title: "Reset Defaults")
+        resetSettingsButton.prepareBlueButton()
+        resetSettingsButton.setButtonTitle(title: "RESET TO DEFAULTS")
     }
     
     
@@ -46,6 +48,9 @@ class AppSettingsPageViewController: UIViewController {
     
     @IBAction func soundSwitchChanged(_ sender: Any) {
         // fon müziğini kapat
+    }
+    
+    @IBAction func backgroundEffectSwitchChanged(_ sender: Any) {
         // arkaplan animasyonunu kapat
     }
     

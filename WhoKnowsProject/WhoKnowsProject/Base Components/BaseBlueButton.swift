@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class BaseBlueButton: UIButton {
-    func prepareButton() {
+    func prepareBlueButton() {
         trappedDarknessBlueButton()
-        prepareCornerRadius(radius: 10)
+        prepareCornerRadius(radius: 5)
     }
 }

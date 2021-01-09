@@ -1,0 +1,126 @@
+// Sample response of https://opentdb.com/api.php?amount=10&type=multiple
+{
+    "response_code": 0,
+    "results": [
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Who was the mascot of SEGA before &quot;Sonic the Hedgehog&quot;?",
+            "correct_answer": "Alex Kidd",
+            "incorrect_answers": [
+                "Opa Opa",
+                "NiGHTS",
+                "Ristar"
+            ]
+        },
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "What engine did the original &quot;Half-Life&quot; run on?",
+            "correct_answer": "GoldSrc",
+            "incorrect_answers": [
+                "Source",
+                "Quake",
+                "Unreal"
+            ]
+        },
+        {
+            "category": "Entertainment: Books",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "What is Hermione Granger&#039;s middle name?",
+            "correct_answer": "Jean",
+            "incorrect_answers": [
+                "Jane",
+                "Emma",
+                "Jo"
+            ]
+        },
+        {
+            "category": "Entertainment: Cartoon & Animations",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "What is the relationship between Rick and Morty in the show &quot;Rick and Morty&quot;?",
+            "correct_answer": "Grandfather and Grandson",
+            "incorrect_answers": [
+                "Father and Son",
+                "Best Friends",
+                "Crimefighting Partners"
+            ]
+        },
+        {
+            "category": "Science: Computers",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "The computer OEM manufacturer Clevo, known for its Sager notebook line, is based in which country?",
+            "correct_answer": "Taiwan",
+            "incorrect_answers": [
+                "United States",
+                "Germany",
+                "China (People&#039;s Republic of)"
+            ]
+        },
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "In the game Dark Souls, what is the name of the region you&#039;re in for the majority of the game?",
+            "correct_answer": "Lordran",
+            "incorrect_answers": [
+                "Drangleic",
+                "Oolacile",
+                "Catarina"
+            ]
+        },
+        {
+            "category": "Entertainment: Books",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "The title of Adolf Hitler&#039;s autobiography &quot;Mein Kampf&quot; is what when translated to English?",
+            "correct_answer": "My Struggle",
+            "incorrect_answers": [
+                "My Hatred",
+                "My Sadness",
+                "My Desire"
+            ]
+        },
+        {
+            "category": "Entertainment: Film",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "In the movie Gremlins, after what time of day should you not feed Mogwai?",
+            "correct_answer": "Midnight",
+            "incorrect_answers": [
+                "Evening",
+                "Morning",
+                "Afternoon"
+            ]
+        },
+        {
+            "category": "Entertainment: Japanese Anime & Manga",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "Which of the following originated as a manga?",
+            "correct_answer": "Akira",
+            "incorrect_answers": [
+                "Cowboy Bebop",
+                "High School DxD",
+                "Gurren Lagann"
+            ]
+        },
+        {
+            "category": "Entertainment: Japanese Anime & Manga",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In &quot;JoJo&#039;s Bizarre Adventure&quot;, which of the following Stands does NOT have a time-based ability?",
+            "correct_answer": "20th Century Boy",
+            "incorrect_answers": [
+                "Made in Heaven",
+                "Star Platinum",
+                "The World"
+            ]
+        }
+    ]
+}

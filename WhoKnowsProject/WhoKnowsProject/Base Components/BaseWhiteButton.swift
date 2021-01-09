@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class BaseWhiteButton: UIButton {
-    func prepareButton() {
+    func prepareWhiteButton() {
         nightWhiteButton()
-        prepareCornerRadius(radius: 10)
+        prepareCornerRadius(radius: 5)
     }
 }

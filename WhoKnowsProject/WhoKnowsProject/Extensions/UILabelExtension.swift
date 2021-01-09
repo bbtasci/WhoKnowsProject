@@ -10,7 +10,10 @@ import UIKit
 
 extension UILabel {
     
-    /*
+    func setLabelText(text: String) {
+        self.text = text
+    }
+/*
     func isCarterBlueLabel(text: String) {
         // Labels of Titles in Screens
         // Red: 65 - Green: 90 - Blue: 119 - CARTER'S SCROLL BLUE
@@ -28,8 +31,5 @@ extension UILabel {
         self.backgroundColor = UIColor( red: CGFloat(27/255.0), green: CGFloat(58/255.0), blue: CGFloat(39/255.0), alpha: CGFloat(1.0))
         self.text = text
     }
- */
-    func setLabelText(text: String) {
-        self.text = text
-    }
+*/    
 }

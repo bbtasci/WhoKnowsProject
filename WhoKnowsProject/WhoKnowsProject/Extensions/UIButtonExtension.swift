@@ -10,7 +10,10 @@ import UIKit
 
 extension UIButton {
     
-    /*
+    func setButtonTitle(title: String) {
+        self.setTitle(title, for: .normal)
+    }
+/*
     func isTrappedDarknessBlueButton(title: String) {
         // Buttons
         // Red:13 - Green:27 - Blue:42 - TRAPPED DARKNESS BLUE
@@ -27,9 +30,5 @@ extension UIButton {
         self.layer.masksToBounds = true
         self.backgroundColor = UIColor( red: CGFloat(13/255.0), green: CGFloat(27/255.0), blue: CGFloat(42/255.0), alpha: CGFloat(1.0))
     }
-    */
-    
-    func setButtonTitle(title: String) {
-        self.setTitle(title, for: .normal)
-    }
+*/
 }

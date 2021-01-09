@@ -11,6 +11,6 @@ import UIKit
 class BaseDarkBlueLabel: UILabel {
     func prepareLabel() {
         midnightBlueLabel()
-        prepareCornerRadius(radius: 10)
+        prepareCornerRadius(radius: 5)
     }
 }

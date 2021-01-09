@@ -8,20 +8,20 @@
 import UIKit
 import Alamofire
 
-class NewGameSettingsPageViewController: BaseFadedBlueViewController {
+class QuizSettingsPageViewController: BaseFadedBlueViewController {
     
     // MARK: - OUTLETS
     
     @IBOutlet weak var newGameInfoLabel: BaseLightBlueLabel!
     
     @IBOutlet weak var nameLabel: BaseLightBlueLabel!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: BaseTextField!
     
     @IBOutlet weak var categoryLabel: BaseLightBlueLabel!
     @IBOutlet weak var categoryPickerView: UIPickerView!
     
     @IBOutlet weak var difficultyLabel: BaseLightBlueLabel!
-    @IBOutlet weak var difficultyTextField: UITextField!
+    @IBOutlet weak var difficultyTextField: BaseTextField!
     
     @IBOutlet weak var startButton: BaseBlueButton!
     
@@ -29,32 +29,37 @@ class NewGameSettingsPageViewController: BaseFadedBlueViewController {
     
     var categories = CategoryModel()
     var selectedCategory: Int?
-    let difficultyLevels = ["Easy", "Medium", "Hard"]
+    var selectedCategoryName: String?
+    let difficultyLevels = ["easy", "medium", "hard"]
     var difficultyPickerView = UIPickerView()
     
     // MARK: - LIFE CYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setViewControllerBackgroundColor()
         // Do any additional setup after loading the view.
         prepareUI()
     }
     
-
-    
     // MARK: - PREPARE UI
+    
     func prepareUI() {
         prepareLayers()
         prepareCategoryPickerView()
         prepareDifficultyPickerView()
+        prepareNavigationItems(title: "QUIZ SETTINGS", backButtonTitle: "Quiz Settings")
     }
     
     func prepareLayers() {
         newGameInfoLabel.prepareLabel()
-        newGameInfoLabel.setLabelText(text: "Enter your name and \n choose best options for you.")
+        newGameInfoLabel.setLabelText(text: "You are about to start. \n Pick the best options for you.")
         
         nameLabel.prepareLabel()
         nameLabel.setLabelText(text: "Name")
+        
+        nameTextField.prepareTextField()
+        nameTextField.placeholder = "Enter Your Name"
         
         categoryLabel.prepareLabel()
         categoryLabel.setLabelText(text: "Category")
@@ -62,7 +67,10 @@ class NewGameSettingsPageViewController: BaseFadedBlueViewController {
         difficultyLabel.prepareLabel()
         difficultyLabel.setLabelText(text: "Difficulty")
         
-        startButton.prepareButton()
+        difficultyTextField.prepareTextField()
+        difficultyTextField.placeholder = "Choose Difficulty"
+        
+        startButton.prepareBlueButton()
         startButton.setButtonTitle(title: "START")
     }
     
@@ -88,18 +96,41 @@ class NewGameSettingsPageViewController: BaseFadedBlueViewController {
                 let triviaCategoriesList = try! JSONDecoder().decode(CategoryModel.self, from: categoryData)
                 self.categories.trivia_categories = triviaCategoriesList.trivia_categories
                 self.categoryPickerView.reloadAllComponents()
-                
             }
         }
     }
+    
+    // MARK: - ALERT
+    
+    func showTemporarilyAlert(title: String, message: String) {
+        let showTemporarilyAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(showTemporarilyAlert, animated: true, completion: nil)
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when){
+            showTemporarilyAlert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
     // MARK: - ACTIONS
     
     @IBAction func startButtonTouched(_ sender: Any) {
+        if nameTextField.text == "" || categoryLabel.text == "" || difficultyLabel.text == "" {
+            showTemporarilyAlert(title: "WARNING", message: "Please do not leave empty NAME, CATEGORY and DIFFICULTY areas!")
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let quizPageViewController = storyboard.instantiateViewController(identifier: "QuizPageViewController") as! QuizPageViewController
+            quizPageViewController.pickedCategory = selectedCategory ?? 0
+            quizPageViewController.pickedCategoryName = selectedCategoryName ?? ""
+            quizPageViewController.pickedDifficulty = difficultyTextField.text?.lowercased() ?? ""
+            self.navigationController?.pushViewController(quizPageViewController, animated: true)
+        }
     }
-    
 }
 
-extension NewGameSettingsPageViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    // MARK: - UIPICKERVIEW DELEGATE AND DATASOURCE METHODS
+
+extension QuizSettingsPageViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -116,15 +147,16 @@ extension NewGameSettingsPageViewController: UIPickerViewDelegate, UIPickerViewD
         if pickerView.tag == 1 {
             return categories.trivia_categories[row].name
         } else {
-            return difficultyLevels[row]
+            return difficultyLevels[row].capitalized
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1 {
             selectedCategory = categories.trivia_categories[row].id
+            selectedCategoryName = categories.trivia_categories[row].name
         } else {
-            difficultyTextField.text = difficultyLevels[row]
+            difficultyTextField.text = difficultyLevels[row].capitalized
         }
     }
 }

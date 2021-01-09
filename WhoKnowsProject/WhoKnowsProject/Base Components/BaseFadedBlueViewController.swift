@@ -9,7 +9,21 @@ import Foundation
 import UIKit
 
 class BaseFadedBlueViewController: UIViewController {
-    func setBackgroundColor() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor( red: CGFloat(119/255.0), green: CGFloat(141/255.0), blue: CGFloat(169/255.0), alpha: CGFloat(1.0))
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(224/255.0), green: CGFloat(225/255.0), blue: CGFloat(221/255.0), alpha: CGFloat(1.0))
+    }
+    
+    func prepareNavigationItems(title: String, backButtonTitle: String) {
+        self.navigationItem.title = title
+        self.navigationItem.backButtonTitle = backButtonTitle
+    }
+    /*
+    func setViewControllerBackgroundColor() {
         eveningHushBlueBackground()
     }
+ */
+    
+    
 }

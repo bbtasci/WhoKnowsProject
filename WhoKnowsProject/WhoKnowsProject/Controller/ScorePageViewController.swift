@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewScoreViewController: UIViewController {
+class ScorePageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
@@ -28,6 +28,7 @@ class NewScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setViewControllerBackgroundColor()
         prepareUI()
 
         // Do any additional setup after loading the view.
@@ -37,6 +38,7 @@ class NewScoreViewController: UIViewController {
     
     func prepareUI() {
         prepareLayers()
+        prepareNavigationItems(title: "YOUR SCORE", backButtonTitle: "QUIZ")
     }
     
     func prepareLayers() {
@@ -45,7 +47,6 @@ class NewScoreViewController: UIViewController {
         
         trueTitleLabel.prepareLabel()
         trueTitleLabel.setLabelText(text: "True Answers")
-        
         trueNumberLabel.prepareLabel()
         
         falseTitleLabel.prepareLabel()
@@ -55,13 +56,16 @@ class NewScoreViewController: UIViewController {
         totalPointsLabel.prepareLabel()
         totalPointsLabel.setLabelText(text: "Total Points")
         
-        goToHomePageButton.prepareButton()
-        goToHomePageButton.setButtonTitle(title: "Go To Home Page")
+        goToHomePageButton.prepareBlueButton()
+        goToHomePageButton.setButtonTitle(title: "GO TO HOME")
     }
     
     // MARK: - ACTIONS
     
     @IBAction func goToHomePageButtonTouched(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homePageViewController = storyboard.instantiateViewController(identifier: "HomePageViewController") as! HomePageViewController
+        self.navigationController?.pushViewController(homePageViewController, animated: true)
     }
     
 }

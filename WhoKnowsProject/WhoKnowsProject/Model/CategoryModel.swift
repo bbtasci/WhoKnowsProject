@@ -7,8 +7,11 @@
 
 import Foundation
 
-final class CategoryModel: Codable {
+struct CategoryModel: Codable {
     var trivia_categories: [TriviaCategoriesModel] = []
 }
 
-
+struct TriviaCategoriesModel: Codable {
+    var id: Int?
+    var name: String?
+}

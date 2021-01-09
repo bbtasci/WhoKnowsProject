@@ -7,12 +7,14 @@
 
 import UIKit
 
-class HighScorePageViewController: UIViewController {
+class HighScorePageViewController: BaseFadedBlueViewController {
     
     // MARK: - OUTLETS
     
-    @IBOutlet weak var titleLabel: BaseLightBlueLabel!
     @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var nameLabel: BaseLightBlueLabel!
+    @IBOutlet weak var dateLabel: BaseLightBlueLabel!
+    @IBOutlet weak var scoreLabel: BaseLightBlueLabel!
     @IBOutlet weak var highScoresTableView: UITableView!
     
     // MARK: - PROPERTIES
@@ -23,7 +25,7 @@ class HighScorePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //setViewControllerBackgroundColor()
         prepareUI()
         // Do any additional setup after loading the view.
     }
@@ -32,11 +34,22 @@ class HighScorePageViewController: UIViewController {
 
     func prepareUI() {
         prepareLayers()
+        prepareNavigationItems(title: "HIGH SCORES", backButtonTitle: "Home")
     }
     
     func prepareLayers() {
-        titleLabel.prepareLabel()
-        titleLabel.setLabelText(text: "HIGH SCORES")
-        iconImageView.image = UIImage(named: "whoknows-iconwk")
+        iconImageView.image = UIImage(named: "whoknows-award")
+        
+        nameLabel.prepareLabel()
+        nameLabel.setLabelText(text: "Name")
+        
+        scoreLabel.prepareLabel()
+        scoreLabel.setLabelText(text: "Score")
+        
+        dateLabel.prepareLabel()
+        dateLabel.setLabelText(text: "Date")
+        
+        highScoresTableView.prepareCornerRadius(radius: 5)
+        highScoresTableView.backgroundColor = UIColor( red: CGFloat(119/255.0), green: CGFloat(141/255.0), blue: CGFloat(169/255.0), alpha: CGFloat(1.0))
     }
 }
