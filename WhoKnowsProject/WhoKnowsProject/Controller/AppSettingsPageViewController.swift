@@ -17,7 +17,6 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     @IBOutlet weak var backgroundEffectSwitch: UISwitch!
     @IBOutlet weak var resetSettingsButton: BaseBlueButton!
     
-    
     // MARK: - PROPERTIES
     
     
@@ -26,7 +25,6 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setViewControllerBackgroundColor()
         prepareUI()
     }
     
@@ -42,7 +40,6 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
         resetSettingsButton.prepareBlueButton()
         resetSettingsButton.setButtonTitle(title: "RESET TO DEFAULTS")
     }
-    
     
     // MARK: - ACTIONS
     

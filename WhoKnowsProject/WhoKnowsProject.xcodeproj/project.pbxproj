@@ -14,6 +14,12 @@
 		4A387E5125A5EC03004B4335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A387E5025A5EC03004B4335 /* Assets.xcassets */; };
 		4A387E5425A5EC03004B4335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A387E5225A5EC03004B4335 /* LaunchScreen.storyboard */; };
 		4A387E6225A6DD9D004B4335 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A387E6125A6DD9D004B4335 /* UIViewExtension.swift */; };
+		4A84AFB425AAA20F008AD593 /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84AFB325AAA20F008AD593 /* ToolbarPickerView.swift */; };
+		4A84AFB825AB0EBD008AD593 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84AFB625AB0EBD008AD593 /* HighScoreTableViewCell.swift */; };
+		4A84AFB925AB0EBD008AD593 /* HighScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A84AFB725AB0EBD008AD593 /* HighScoreTableViewCell.xib */; };
+		4A84AFBC25AB112F008AD593 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84AFBB25AB112F008AD593 /* PlayerModel.swift */; };
+		4A84AFC425AB1A46008AD593 /* incorrect-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */; };
+		4A84AFC525AB1A46008AD593 /* correct-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */; };
 		4A8F167425A6E21700CC979F /* HighScorePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167325A6E21700CC979F /* HighScorePageViewController.swift */; };
 		4A8F167725A6E22800CC979F /* AppSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167625A6E22800CC979F /* AppSettingsPageViewController.swift */; };
 		4A8F167A25A6E23D00CC979F /* QuizSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167925A6E23D00CC979F /* QuizSettingsPageViewController.swift */; };
@@ -44,6 +50,12 @@
 		4A387E5325A5EC03004B4335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A387E5525A5EC03004B4335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A387E6125A6DD9D004B4335 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		4A84AFB325AAA20F008AD593 /* ToolbarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerView.swift; sourceTree = "<group>"; };
+		4A84AFB625AB0EBD008AD593 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
+		4A84AFB725AB0EBD008AD593 /* HighScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreTableViewCell.xib; sourceTree = "<group>"; };
+		4A84AFBB25AB112F008AD593 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "incorrect-sound.wav"; path = "../../../incorrect-sound.wav"; sourceTree = "<group>"; };
+		4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "correct-sound.mp3"; path = "../../../correct-sound.mp3"; sourceTree = "<group>"; };
 		4A8F167325A6E21700CC979F /* HighScorePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScorePageViewController.swift; sourceTree = "<group>"; };
 		4A8F167625A6E22800CC979F /* AppSettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsPageViewController.swift; sourceTree = "<group>"; };
 		4A8F167925A6E23D00CC979F /* QuizSettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSettingsPageViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +161,7 @@
 			children = (
 				4ACEAD2525A82ED600384604 /* CategoryModel.swift */,
 				4AC8B8FF25AA3F8A002BE2AA /* QuestionModel.swift */,
+				4A84AFBB25AB112F008AD593 /* PlayerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +188,8 @@
 		4A8F168825A6FE7F00CC979F /* High Scores Table View Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4A84AFB625AB0EBD008AD593 /* HighScoreTableViewCell.swift */,
+				4A84AFB725AB0EBD008AD593 /* HighScoreTableViewCell.xib */,
 			);
 			path = "High Scores Table View Cell";
 			sourceTree = "<group>";
@@ -182,7 +197,10 @@
 		4ACEAD2B25A8366200384604 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */,
+				4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */,
 				4ACEAD4125A866B300384604 /* BackgroundSound.swift */,
+				4A84AFB325AAA20F008AD593 /* ToolbarPickerView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -270,6 +288,9 @@
 			files = (
 				4A387E5425A5EC03004B4335 /* LaunchScreen.storyboard in Resources */,
 				4A387E5125A5EC03004B4335 /* Assets.xcassets in Resources */,
+				4A84AFC425AB1A46008AD593 /* incorrect-sound.wav in Resources */,
+				4A84AFC525AB1A46008AD593 /* correct-sound.mp3 in Resources */,
+				4A84AFB925AB0EBD008AD593 /* HighScoreTableViewCell.xib in Resources */,
 				4A387E4F25A5EC03004B4335 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,10 +360,13 @@
 				4A8F167E25A6E2EF00CC979F /* UIViewControllerExtension.swift in Sources */,
 				4ACEAD3625A865AA00384604 /* BaseWhiteButton.swift in Sources */,
 				4A8F167A25A6E23D00CC979F /* QuizSettingsPageViewController.swift in Sources */,
+				4A84AFB825AB0EBD008AD593 /* HighScoreTableViewCell.swift in Sources */,
 				4A387E4825A5EC03004B4335 /* AppDelegate.swift in Sources */,
+				4A84AFBC25AB112F008AD593 /* PlayerModel.swift in Sources */,
 				4ACEAD3225A8659C00384604 /* BaseBlueButton.swift in Sources */,
 				4ACEAD4225A866B300384604 /* BackgroundSound.swift in Sources */,
 				4ACEAD3C25A865EB00384604 /* BaseDarkBlueLabel.swift in Sources */,
+				4A84AFB425AAA20F008AD593 /* ToolbarPickerView.swift in Sources */,
 				4A387E4A25A5EC03004B4335 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

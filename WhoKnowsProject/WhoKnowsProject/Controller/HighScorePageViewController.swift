@@ -9,6 +9,7 @@ import UIKit
 
 class HighScorePageViewController: BaseFadedBlueViewController {
     
+    
     // MARK: - OUTLETS
     
     @IBOutlet weak var iconImageView: UIImageView!
@@ -19,7 +20,8 @@ class HighScorePageViewController: BaseFadedBlueViewController {
     
     // MARK: - PROPERTIES
     
-    
+    var savedPlayer = Player()
+    var highScoreList: [Player] = []
     
     // MARK: - LIFE CYCLE METHODS
     
@@ -53,3 +55,30 @@ class HighScorePageViewController: BaseFadedBlueViewController {
         highScoresTableView.backgroundColor = UIColor( red: CGFloat(119/255.0), green: CGFloat(141/255.0), blue: CGFloat(169/255.0), alpha: CGFloat(1.0))
     }
 }
+
+    // MARK: - UITABLEVIEW DELEGATE AND DATASOURCE METHODS
+
+extension HighScorePageViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return highScoreList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HighScoreTableViewCell") as? HighScoreTableViewCell
+        cell?.setCell(player: highScoreList[indexPath.row])
+        return cell!
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // MARK: - Delegation Method
+    
+}
+
+

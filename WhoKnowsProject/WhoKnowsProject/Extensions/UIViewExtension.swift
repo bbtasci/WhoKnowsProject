@@ -45,7 +45,7 @@ extension UIView {
     func midnightBlueLabel() {
         // Labels of Question Pharagraphs / True Answers / False Answers / Total Points
         // Red: 27 - Green: 58 - Blue: 39 - MIDNIGHT EXPRESS BLUE
-        self.backgroundColor = UIColor(red: CGFloat(27/255.0), green: CGFloat(58/255.0), blue: CGFloat(39/255.0), alpha: CGFloat(1.0))
+        self.backgroundColor = UIColor(red: CGFloat(27/255.0), green: CGFloat(38/255.0), blue: CGFloat(59/255.0), alpha: CGFloat(1.0))
     }
     
 }

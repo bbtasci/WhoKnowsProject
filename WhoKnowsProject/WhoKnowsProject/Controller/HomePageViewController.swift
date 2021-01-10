@@ -25,7 +25,6 @@ class HomePageViewController: BaseFadedBlueViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
-        //setViewControllerBackgroundColor()
     }
 
     // MARK: - PREPARE UI
@@ -50,11 +49,6 @@ class HomePageViewController: BaseFadedBlueViewController {
         gameSettingsButton.setButtonTitle(title: "SETTINGS")
     }
     
-//    func prepareNavigationItems() {
-//        navigationItem.title = "WHO KNOWS"
-//        navigationItem.backButtonTitle = "Home"
-//    }
-//
     // MARK: - ACTIONS
     
     @IBAction func goToQuizButtonTouched(_ sender: Any) {
@@ -74,6 +68,4 @@ class HomePageViewController: BaseFadedBlueViewController {
         let appSettingsPageViewController = storyboard.instantiateViewController(identifier: "AppSettingsPageViewController") as! AppSettingsPageViewController
         self.navigationController?.pushViewController(appSettingsPageViewController, animated: true)
     }
-    
 }
-

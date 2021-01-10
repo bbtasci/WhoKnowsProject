@@ -13,32 +13,29 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
     // MARK: - OUTLETS
     
     @IBOutlet weak var newGameInfoLabel: BaseLightBlueLabel!
-    
     @IBOutlet weak var nameLabel: BaseLightBlueLabel!
     @IBOutlet weak var nameTextField: BaseTextField!
-    
     @IBOutlet weak var categoryLabel: BaseLightBlueLabel!
-    @IBOutlet weak var categoryPickerView: UIPickerView!
-    
+    @IBOutlet weak var categoryTextField: BaseTextField!
     @IBOutlet weak var difficultyLabel: BaseLightBlueLabel!
     @IBOutlet weak var difficultyTextField: BaseTextField!
-    
     @IBOutlet weak var startButton: BaseBlueButton!
     
     // MARK: - PROPERTIES
     
     var categories = CategoryModel()
-    var selectedCategory: Int?
+    var selectedCategoryId: Int?
     var selectedCategoryName: String?
     let difficultyLevels = ["easy", "medium", "hard"]
-    var difficultyPickerView = UIPickerView()
+    var difficultyPickerView = ToolbarPickerView()
+    var categoryList: [String] = [] // Print on Category TextField
+    var categoryIdList: [Int] = [] // Pass ID to QuizPageViewController to fetch data from API
+    var categoryPickerView = ToolbarPickerView()
     
     // MARK: - LIFE CYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setViewControllerBackgroundColor()
-        // Do any additional setup after loading the view.
         prepareUI()
     }
     
@@ -64,6 +61,9 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
         categoryLabel.prepareLabel()
         categoryLabel.setLabelText(text: "Category")
         
+        categoryTextField.prepareTextField()
+        categoryTextField.placeholder = "Pick Category"
+        
         difficultyLabel.prepareLabel()
         difficultyLabel.setLabelText(text: "Difficulty")
         
@@ -75,17 +75,23 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
     }
     
     func prepareCategoryPickerView() {
+        getCategoryFromAPI() // Update categories list by API
         categoryPickerView.tag = 1
+        categoryTextField.inputView = categoryPickerView
+        categoryTextField.inputAccessoryView = categoryPickerView.toolbarForCategory
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self
-        getCategoryFromAPI()
-        
+        categoryPickerView.toolbarForCategoryDelegate = self
     }
+    
     func prepareDifficultyPickerView() {
         difficultyPickerView.tag = 2
+        difficultyTextField.inputView = difficultyPickerView
+        difficultyTextField.inputAccessoryView = difficultyPickerView.toolbarForDifficulty
         difficultyPickerView.delegate = self
         difficultyPickerView.dataSource = self
-        difficultyTextField.inputView = difficultyPickerView
+        difficultyPickerView.toolbarForDifficultyDelegate = self
+
     }
     
     // MARK: - SERVICE CALL
@@ -95,34 +101,28 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
             if let categoryData = response.data {
                 let triviaCategoriesList = try! JSONDecoder().decode(CategoryModel.self, from: categoryData)
                 self.categories.trivia_categories = triviaCategoriesList.trivia_categories
+                
+                for i in 0...23 { // Append categories into the list from API
+                    self.categoryList.append(triviaCategoriesList.trivia_categories[i].name ?? "")
+                    self.categoryIdList.append(triviaCategoriesList.trivia_categories[i].id ?? 0)
+                }
                 self.categoryPickerView.reloadAllComponents()
             }
         }
     }
     
-    // MARK: - ALERT
-    
-    func showTemporarilyAlert(title: String, message: String) {
-        let showTemporarilyAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        self.present(showTemporarilyAlert, animated: true, completion: nil)
-        let when = DispatchTime.now() + 3
-        DispatchQueue.main.asyncAfter(deadline: when){
-            showTemporarilyAlert.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    
     // MARK: - ACTIONS
     
     @IBAction func startButtonTouched(_ sender: Any) {
         if nameTextField.text == "" || categoryLabel.text == "" || difficultyLabel.text == "" {
-            showTemporarilyAlert(title: "WARNING", message: "Please do not leave empty NAME, CATEGORY and DIFFICULTY areas!")
+            self.showTemporarilyAlert(title: "WARNING", message: "Please enter your NAME, pick one CATEGORY and choose DIFFICULTY!", duration: 2)
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let quizPageViewController = storyboard.instantiateViewController(identifier: "QuizPageViewController") as! QuizPageViewController
-            quizPageViewController.pickedCategory = selectedCategory ?? 0
-            quizPageViewController.pickedCategoryName = selectedCategoryName ?? ""
+            quizPageViewController.pickedCategoryId = selectedCategoryId ?? 0
+            quizPageViewController.pickedCategoryName = categoryTextField.text ?? ""
             quizPageViewController.pickedDifficulty = difficultyTextField.text?.lowercased() ?? ""
+            quizPageViewController.playerName = nameTextField.text ?? ""
             self.navigationController?.pushViewController(quizPageViewController, animated: true)
         }
     }
@@ -137,7 +137,7 @@ extension QuizSettingsPageViewController: UIPickerViewDelegate, UIPickerViewData
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1 {
-            return categories.trivia_categories.count
+            return categoryList.count
         } else {
             return difficultyLevels.count
         }
@@ -145,7 +145,7 @@ extension QuizSettingsPageViewController: UIPickerViewDelegate, UIPickerViewData
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
-            return categories.trivia_categories[row].name
+            return categoryList[row]
         } else {
             return difficultyLevels[row].capitalized
         }
@@ -153,10 +153,40 @@ extension QuizSettingsPageViewController: UIPickerViewDelegate, UIPickerViewData
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1 {
-            selectedCategory = categories.trivia_categories[row].id
-            selectedCategoryName = categories.trivia_categories[row].name
+            categoryTextField.text = categoryList[row]
+            selectedCategoryId = categoryIdList[row]
         } else {
             difficultyTextField.text = difficultyLevels[row].capitalized
         }
+    }
+}
+
+    // MARK: - TOOLBAR PICKER VIEW DELEGATE (In order to add Cancel and Done Buttons to PickerView)
+
+extension QuizSettingsPageViewController: ToolbarPickerViewDelegate {
+
+    func didTapDoneForCategory() {
+        let categoryRow = self.categoryPickerView.selectedRow(inComponent: 0)
+        self.categoryPickerView.selectRow(categoryRow, inComponent: 0, animated: false)
+        self.categoryTextField.text = self.categoryList[categoryRow].capitalized
+        self.categoryTextField.resignFirstResponder()
+    }
+    
+    func didTapCancelForCategory() {
+        self.categoryTextField.text = nil
+        self.categoryTextField.resignFirstResponder()
+        
+    }
+    
+    func didTapDoneForDifficulty() {
+        let difficultyRow = self.difficultyPickerView.selectedRow(inComponent: 0)
+        self.difficultyPickerView.selectRow(difficultyRow, inComponent: 0, animated: false)
+        self.difficultyTextField.text = self.difficultyLevels[difficultyRow].capitalized
+        self.difficultyTextField.resignFirstResponder()
+    }
+
+    func didTapCancelForDifficulty() {
+        self.difficultyTextField.text = nil
+        self.difficultyTextField.resignFirstResponder()
     }
 }

@@ -18,5 +18,14 @@ extension UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(13/255.0), green: CGFloat(27/255.0), blue: CGFloat(42/255.0), alpha: CGFloat(1.0))
     }
     
+    func showTemporarilyAlert(title: String, message: String, duration: Int) {
+        let durationOfAlert = DispatchTime.now() + .seconds(duration)
+        let showTemporarilyAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(showTemporarilyAlert, animated: true, completion: nil)
+        let when = durationOfAlert
+        DispatchQueue.main.asyncAfter(deadline: when){
+            showTemporarilyAlert.dismiss(animated: true, completion: nil)
+        }
+    }
     
 }
