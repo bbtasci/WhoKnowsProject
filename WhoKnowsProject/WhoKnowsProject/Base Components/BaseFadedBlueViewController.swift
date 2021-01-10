@@ -19,11 +19,4 @@ class BaseFadedBlueViewController: UIViewController {
         self.navigationItem.title = title
         self.navigationItem.backButtonTitle = backButtonTitle
     }
-    /*
-    func setViewControllerBackgroundColor() {
-        eveningHushBlueBackground()
-    }
- */
-    
-    
 }

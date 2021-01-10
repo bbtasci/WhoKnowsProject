@@ -130,6 +130,7 @@ class QuizPageViewController: BaseFadedBlueViewController {
                 print("Could not load voice")
             }
             //button.layer.backgroundColor = UIColor.green.cgColor
+            
             print ("right")
             
             if pickedDifficulty == "easy" {
@@ -142,7 +143,6 @@ class QuizPageViewController: BaseFadedBlueViewController {
                 score += 20
                 totalPointsLabel.text = "\(score)"
             }
-            
         } else {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: incorrectButtonSound)
@@ -151,8 +151,8 @@ class QuizPageViewController: BaseFadedBlueViewController {
                 print("Could not load voice")
             }
             print ("wrong")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            showTemporarilyAlert(title: "YOU ARE DONE!", message: "You answered \(self.currentQuestion - 1) questions right.", duration: 3)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let scorePageViewController = storyboard.instantiateViewController(identifier: "ScorePageViewController") as! ScorePageViewController
                 scorePageViewController.totalPoints = self.score
@@ -161,6 +161,8 @@ class QuizPageViewController: BaseFadedBlueViewController {
                 self.navigationController?.pushViewController(scorePageViewController, animated: true)
             }
         }
-        newQuestion()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.newQuestion()
+        }
     }
 }

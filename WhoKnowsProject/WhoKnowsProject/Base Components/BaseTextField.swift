@@ -12,7 +12,5 @@ class BaseTextField: UITextField {
     func prepareTextField() {
         prepareCornerRadius(radius: 5)
         prepareCarterBlueBorders(borderWidth: 1)
-        
     }
-    
 }
