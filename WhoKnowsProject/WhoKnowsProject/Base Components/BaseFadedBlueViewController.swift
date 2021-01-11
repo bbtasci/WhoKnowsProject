@@ -25,35 +25,35 @@ class BaseFadedBlueViewController: UIViewController {
         self.navigationItem.backButtonTitle = backButtonTitle
     }
     
-    func startBGMusic() {
-        do {
-            self.audioPlayer = try AVAudioPlayer(contentsOf: self.bg_music)
-            self.audioPlayer.play()
-        } catch {
-            print("Could not load voice")
-        }
-    }
-    
-    func stopBGMusic() {
-        if audioPlayer.isPlaying {
-            self.audioPlayer.pause()
-        }
-    }
-    
-    func soundSwitchControl() {
-        if audioPlayer.isPlaying {
-            stopBGMusic()
-        } else {
-            audioPlayer.play()
-        }
-    }
-    
-    func continueMusic() {
-        if audioPlayer.isPlaying {
-            audioPlayer.play()
-        } else {
-            audioPlayer.play()
-        }
-    }
+//    func startBGMusic() {
+//        do {
+//            self.audioPlayer = try AVAudioPlayer(contentsOf: self.bg_music)
+//            self.audioPlayer.play()
+//        } catch {
+//            print("Could not load voice")
+//        }
+//    }
+//    
+//    func stopBGMusic() {
+//        if audioPlayer.isPlaying {
+//            self.audioPlayer.pause()
+//        }
+//    }
+//    
+//    func soundSwitchControl() {
+//        if audioPlayer.isPlaying {
+//            stopBGMusic()
+//        } else {
+//            audioPlayer.play()
+//        }
+//    }
+//    
+//    func continueMusic() {
+//        if audioPlayer.isPlaying {
+//            audioPlayer.play()
+//        } else {
+//            audioPlayer.play()
+//        }
+//    }
     
 }

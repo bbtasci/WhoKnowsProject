@@ -26,8 +26,9 @@ class HomePageViewController: BaseFadedBlueViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
+        SoundHelper.sharedInstance.startBGMusic()
     }
-
+  
     // MARK: - PREPARE UI
     
     func prepareUI() {

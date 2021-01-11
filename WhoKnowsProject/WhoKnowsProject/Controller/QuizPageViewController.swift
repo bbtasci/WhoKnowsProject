@@ -92,6 +92,7 @@ class QuizPageViewController: BaseFadedBlueViewController {
     // MARK: - METHODS
     
     func newQuestion() {
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.questionLabel.text = self.questions[self.currentQuestion]
             
@@ -117,11 +118,13 @@ class QuizPageViewController: BaseFadedBlueViewController {
                     x += 1
                 }
             }
+            
             self.currentQuestion += 1
             self.questionNumberLabel.text = "Question #\(self.currentQuestion)"
             
             self.timerLabel.textColor = .black
             self.timerImageView.tintColor = .black
+            
             self.timeLeft = 10
             self.startTimer()
         }
@@ -129,18 +132,22 @@ class QuizPageViewController: BaseFadedBlueViewController {
     
     
     func startTimer() {
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if self.timeLeft > -1 {
                 self.timerLabel.text = String(self.timeLeft)
                 self.timeLeft -= 1
             } else {
+                
                 do {
                     self.audioPlayer = try AVAudioPlayer(contentsOf: self.timeoutSound)
                     self.audioPlayer.play()
                 } catch {
                     print("Could not load voice")
                 }
+                
                 self.stopTimer()
+                
                 self.showTemporarilyAlert(title: "YOU ARE DONE!", message: "You answered \(self.currentQuestion - 1) questions right.", duration: 3)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
@@ -151,8 +158,8 @@ class QuizPageViewController: BaseFadedBlueViewController {
                     scorePageViewController.playerName = self.playerName
                     self.navigationController?.pushViewController(scorePageViewController, animated: true)
                 }
-                
             }
+            
             if self.timeLeft < 5 {
                 self.timerImageView.tintColor = .red
                 self.timerLabel.textColor = .red
@@ -169,16 +176,15 @@ class QuizPageViewController: BaseFadedBlueViewController {
     @IBAction func action(_ sender: Any) {
         if ((sender as AnyObject).tag == Int(rightAnswerPlacement)) {
             stopTimer()
+            //print ("right")
+            
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: correctButtonSound)
                 audioPlayer.play()
             } catch {
                 print("Could not load voice")
             }
-            //button.layer.backgroundColor = UIColor.green.cgColor
-            
-            print ("right")
-            
+
             if pickedDifficulty == "easy" {
                 score += 5
                 totalPointsLabel.text = "\(score)"
@@ -189,15 +195,18 @@ class QuizPageViewController: BaseFadedBlueViewController {
                 score += 20
                 totalPointsLabel.text = "\(score)"
             }
+            
         } else {
             stopTimer()
+            //print ("wrong")
+            
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: incorrectButtonSound)
                 audioPlayer.play()
             } catch {
                 print("Could not load voice")
             }
-            print ("wrong")
+            
             showTemporarilyAlert(title: "YOU ARE DONE!", message: "You answered \(self.currentQuestion - 1) questions right.", duration: 3)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -38,6 +38,7 @@
 		4ACEAD3F25A8660C00384604 /* BaseFadedBlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD3E25A8660C00384604 /* BaseFadedBlueViewController.swift */; };
 		4AE0601325AC2BE000B20A89 /* timeout-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */; };
 		4AE0601625AC34D000B20A89 /* bg-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4AE0601525AC34D000B20A89 /* bg-music.mp3 */; };
+		4AE0601F25AC4F4500B20A89 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0601E25AC4F4500B20A89 /* SoundHelper.swift */; };
 		72BF0CDB433CB5B7DC0825A5 /* Pods_WhoKnowsProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845DFA0895146FA6871A9842 /* Pods_WhoKnowsProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		4ACEAD3E25A8660C00384604 /* BaseFadedBlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFadedBlueViewController.swift; sourceTree = "<group>"; };
 		4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "timeout-sound.mp3"; path = "../../../timeout-sound.mp3"; sourceTree = "<group>"; };
 		4AE0601525AC34D000B20A89 /* bg-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music.mp3"; path = "../../../bg-music.mp3"; sourceTree = "<group>"; };
+		4AE0601E25AC4F4500B20A89 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		845DFA0895146FA6871A9842 /* Pods_WhoKnowsProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoKnowsProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE38DF0D44CCFA768A018259 /* Pods-WhoKnowsProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoKnowsProject.release.xcconfig"; path = "Target Support Files/Pods-WhoKnowsProject/Pods-WhoKnowsProject.release.xcconfig"; sourceTree = "<group>"; };
 		B83460EC6D8A4EA16D27E063 /* Pods-WhoKnowsProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoKnowsProject.debug.xcconfig"; path = "Target Support Files/Pods-WhoKnowsProject/Pods-WhoKnowsProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */,
 				4AE0601525AC34D000B20A89 /* bg-music.mp3 */,
 				4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */,
+				4AE0601E25AC4F4500B20A89 /* SoundHelper.swift */,
 				4A84AFB325AAA20F008AD593 /* ToolbarPickerView.swift */,
 			);
 			path = Resources;
@@ -362,6 +365,7 @@
 				4A8F167725A6E22800CC979F /* AppSettingsPageViewController.swift in Sources */,
 				4A387E6225A6DD9D004B4335 /* UIViewExtension.swift in Sources */,
 				4AC8B90025AA3F8A002BE2AA /* QuestionModel.swift in Sources */,
+				4AE0601F25AC4F4500B20A89 /* SoundHelper.swift in Sources */,
 				4A8F167E25A6E2EF00CC979F /* UIViewControllerExtension.swift in Sources */,
 				4ACEAD3625A865AA00384604 /* BaseWhiteButton.swift in Sources */,
 				4A8F167A25A6E23D00CC979F /* QuizSettingsPageViewController.swift in Sources */,

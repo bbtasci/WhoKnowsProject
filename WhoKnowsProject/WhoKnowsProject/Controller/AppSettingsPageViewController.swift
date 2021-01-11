@@ -24,7 +24,10 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
-        startBGMusic()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //self.soundSwitch.isOn = UserDefaults.standard.bool(forKey: "switchState")
     }
     
     // MARK: - PREPARE UI
@@ -41,14 +44,23 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
         resetSettingsButton.setButtonTitle(title: "RESET TO DEFAULTS")
     }
     
+    func checkSwitchStatus() {
+        
+    }
+    
     // MARK: - ACTIONS
     
     @IBAction func soundSwitchChanged(_ sender: Any) {
-        soundSwitchControl()
+        //UserDefaults.standard.set((sender as AnyObject).isOn, forKey: "switchState")
+        if soundSwitch.isOn {
+            SoundHelper.sharedInstance.continueMusic()
+        } else {
+            SoundHelper.sharedInstance.stopBGMusic()
+        }
     }
 
     @IBAction func resetSettingsButtonTouched(_ sender: Any) {
         soundSwitch.setOn(true, animated: true)
-        continueMusic()
+        SoundHelper.sharedInstance.continueMusic()
     }
 }
