@@ -13,7 +13,6 @@ class QuizPageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var categoryLabel: BaseLightBlueLabel!
     @IBOutlet weak var questionNumberLabel: UILabel!
     @IBOutlet weak var questionLabel: BaseDarkBlueLabel!
@@ -27,7 +26,7 @@ class QuizPageViewController: BaseFadedBlueViewController {
     
     let correctButtonSound = URL(fileURLWithPath: Bundle.main.path(forResource: "correct-sound", ofType: "mp3")!)
     let incorrectButtonSound = URL(fileURLWithPath: Bundle.main.path(forResource: "incorrect-sound", ofType: "wav")!)
-    var audioPlayer = AVAudioPlayer()
+    let timeoutSound = URL(fileURLWithPath: Bundle.main.path(forResource: "timeout-sound", ofType: "mp3")!)
     
     var pickedCategoryId: Int = 0
     var pickedCategoryName: String = ""
@@ -41,18 +40,19 @@ class QuizPageViewController: BaseFadedBlueViewController {
     var currentQuestion: Int = 0
     var rightAnswerPlacement: UInt32 = 0
     
+    var timer: Timer?
+    var timeLeft = 10
+    
     // MARK: - LIFE CYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.spinner.startAnimating()
         categoryLabel.text = pickedCategoryName
         prepareUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getQuestionsFromAPI()
-        self.spinner.startAnimating()
     }
     
     // MARK: - PREPARE UI
@@ -92,7 +92,7 @@ class QuizPageViewController: BaseFadedBlueViewController {
     // MARK: - METHODS
     
     func newQuestion() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.questionLabel.text = self.questions[self.currentQuestion]
             
             self.rightAnswerPlacement = arc4random_uniform(4) + 1
@@ -108,21 +108,67 @@ class QuizPageViewController: BaseFadedBlueViewController {
                 
                 if (i == Int(self.rightAnswerPlacement)) {
                     button.setTitle(self.answers[self.currentQuestion][0], for: .normal)
+                    //button.backgroundColor = .green
+                    
+                    
                 } else {
                     button.setTitle(self.answers[self.currentQuestion][x], for: .normal)
+                    //button.backgroundColor = .red
                     x += 1
                 }
             }
             self.currentQuestion += 1
             self.questionNumberLabel.text = "Question #\(self.currentQuestion)"
+            
+            self.timerLabel.textColor = .black
+            self.timerImageView.tintColor = .black
+            self.timeLeft = 10
+            self.startTimer()
         }
+    }
+    
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            if self.timeLeft > -1 {
+                self.timerLabel.text = String(self.timeLeft)
+                self.timeLeft -= 1
+            } else {
+                do {
+                    self.audioPlayer = try AVAudioPlayer(contentsOf: self.timeoutSound)
+                    self.audioPlayer.play()
+                } catch {
+                    print("Could not load voice")
+                }
+                self.stopTimer()
+                self.showTemporarilyAlert(title: "YOU ARE DONE!", message: "You answered \(self.currentQuestion - 1) questions right.", duration: 3)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let scorePageViewController = storyboard.instantiateViewController(identifier: "ScorePageViewController") as! ScorePageViewController
+                    scorePageViewController.totalPoints = self.score
+                    scorePageViewController.totalTrueNumbers = self.currentQuestion - 1
+                    scorePageViewController.playerName = self.playerName
+                    self.navigationController?.pushViewController(scorePageViewController, animated: true)
+                }
+                
+            }
+            if self.timeLeft < 5 {
+                self.timerImageView.tintColor = .red
+                self.timerLabel.textColor = .red
+            }
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
     }
     
     // MARK: - ACTIONS
 
     @IBAction func action(_ sender: Any) {
         if ((sender as AnyObject).tag == Int(rightAnswerPlacement)) {
-            
+            stopTimer()
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: correctButtonSound)
                 audioPlayer.play()
@@ -144,6 +190,7 @@ class QuizPageViewController: BaseFadedBlueViewController {
                 totalPointsLabel.text = "\(score)"
             }
         } else {
+            stopTimer()
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: incorrectButtonSound)
                 audioPlayer.play()

@@ -19,8 +19,7 @@ class ScorePageViewController: BaseFadedBlueViewController {
     @IBOutlet weak var totalPointsTitleLabel: BaseDarkBlueLabel!
     @IBOutlet weak var totalPointsLabel: BaseDarkBlueLabel!
     @IBOutlet weak var goToHomePageButton: BaseBlueButton!
-    @IBOutlet weak var playAgainButton: BaseBlueButton!
-    
+
     // MARK: - PROPERTIES
     
     var newPlayer = [PlayerModel]()
@@ -69,8 +68,6 @@ class ScorePageViewController: BaseFadedBlueViewController {
         goToHomePageButton.prepareBlueButton()
         goToHomePageButton.setButtonTitle(title: "GO TO HOMEPAGE")
         
-        playAgainButton.prepareBlueButton()
-        playAgainButton.setButtonTitle(title: "PLAY AGAIN")
     }
     
     func saveScore() {
@@ -85,10 +82,4 @@ class ScorePageViewController: BaseFadedBlueViewController {
         self.navigationController?.pushViewController(homePageViewController, animated: true)
     }
     
-    @IBAction func playAgainButtonTouched(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let quizSettingsPageViewController = storyboard.instantiateViewController(identifier: "QuizSettingsPageViewController") as! QuizSettingsPageViewController
-        quizSettingsPageViewController.nameTextField.text = playerName
-        self.navigationController?.pushViewController(quizSettingsPageViewController, animated: true)
-    }
 }

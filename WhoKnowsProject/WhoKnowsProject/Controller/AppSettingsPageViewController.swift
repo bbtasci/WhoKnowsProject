@@ -6,19 +6,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AppSettingsPageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
-    @IBOutlet weak var soundLabel: UILabel!
+    @IBOutlet weak var soundLabel: BaseLightBlueLabel!
     @IBOutlet weak var soundSwitch: UISwitch!
-    @IBOutlet weak var backgroundEffectLabel: UILabel!
-    @IBOutlet weak var backgroundEffectSwitch: UISwitch!
     @IBOutlet weak var resetSettingsButton: BaseBlueButton!
     
     // MARK: - PROPERTIES
-    
     
     
     // MARK: - LIFE CYCLE METHODS
@@ -26,6 +24,7 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
+        startBGMusic()
     }
     
     // MARK: - PREPARE UI
@@ -33,10 +32,11 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     func prepareUI() {
         prepareLayers()
         prepareNavigationItems(title: "SETTINGS", backButtonTitle: "Home")
-        
     }
     
     func prepareLayers() {
+        soundLabel.prepareLabel()
+        soundLabel.setLabelText(text: " Sound")
         resetSettingsButton.prepareBlueButton()
         resetSettingsButton.setButtonTitle(title: "RESET TO DEFAULTS")
     }
@@ -44,14 +44,11 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     // MARK: - ACTIONS
     
     @IBAction func soundSwitchChanged(_ sender: Any) {
-        // fon müziğini kapat
+        soundSwitchControl()
     }
-    
-    @IBAction func backgroundEffectSwitchChanged(_ sender: Any) {
-        // arkaplan animasyonunu kapat
-    }
-    
+
     @IBAction func resetSettingsButtonTouched(_ sender: Any) {
+        soundSwitch.setOn(true, animated: true)
+        continueMusic()
     }
-    
 }

@@ -36,7 +36,8 @@
 		4ACEAD3925A865DC00384604 /* BaseLightBlueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD3825A865DC00384604 /* BaseLightBlueLabel.swift */; };
 		4ACEAD3C25A865EB00384604 /* BaseDarkBlueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD3B25A865EB00384604 /* BaseDarkBlueLabel.swift */; };
 		4ACEAD3F25A8660C00384604 /* BaseFadedBlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD3E25A8660C00384604 /* BaseFadedBlueViewController.swift */; };
-		4ACEAD4225A866B300384604 /* BackgroundSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEAD4125A866B300384604 /* BackgroundSound.swift */; };
+		4AE0601325AC2BE000B20A89 /* timeout-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */; };
+		4AE0601625AC34D000B20A89 /* bg-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4AE0601525AC34D000B20A89 /* bg-music.mp3 */; };
 		72BF0CDB433CB5B7DC0825A5 /* Pods_WhoKnowsProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845DFA0895146FA6871A9842 /* Pods_WhoKnowsProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +73,8 @@
 		4ACEAD3825A865DC00384604 /* BaseLightBlueLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLightBlueLabel.swift; sourceTree = "<group>"; };
 		4ACEAD3B25A865EB00384604 /* BaseDarkBlueLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDarkBlueLabel.swift; sourceTree = "<group>"; };
 		4ACEAD3E25A8660C00384604 /* BaseFadedBlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFadedBlueViewController.swift; sourceTree = "<group>"; };
-		4ACEAD4125A866B300384604 /* BackgroundSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSound.swift; sourceTree = "<group>"; };
+		4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "timeout-sound.mp3"; path = "../../../timeout-sound.mp3"; sourceTree = "<group>"; };
+		4AE0601525AC34D000B20A89 /* bg-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music.mp3"; path = "../../../bg-music.mp3"; sourceTree = "<group>"; };
 		845DFA0895146FA6871A9842 /* Pods_WhoKnowsProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoKnowsProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE38DF0D44CCFA768A018259 /* Pods-WhoKnowsProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoKnowsProject.release.xcconfig"; path = "Target Support Files/Pods-WhoKnowsProject/Pods-WhoKnowsProject.release.xcconfig"; sourceTree = "<group>"; };
 		B83460EC6D8A4EA16D27E063 /* Pods-WhoKnowsProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoKnowsProject.debug.xcconfig"; path = "Target Support Files/Pods-WhoKnowsProject/Pods-WhoKnowsProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,9 +199,10 @@
 		4ACEAD2B25A8366200384604 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */,
 				4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */,
+				4AE0601525AC34D000B20A89 /* bg-music.mp3 */,
 				4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */,
-				4ACEAD4125A866B300384604 /* BackgroundSound.swift */,
 				4A84AFB325AAA20F008AD593 /* ToolbarPickerView.swift */,
 			);
 			path = Resources;
@@ -287,9 +290,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A387E5425A5EC03004B4335 /* LaunchScreen.storyboard in Resources */,
+				4AE0601625AC34D000B20A89 /* bg-music.mp3 in Resources */,
 				4A387E5125A5EC03004B4335 /* Assets.xcassets in Resources */,
 				4A84AFC425AB1A46008AD593 /* incorrect-sound.wav in Resources */,
 				4A84AFC525AB1A46008AD593 /* correct-sound.mp3 in Resources */,
+				4AE0601325AC2BE000B20A89 /* timeout-sound.mp3 in Resources */,
 				4A84AFB925AB0EBD008AD593 /* HighScoreTableViewCell.xib in Resources */,
 				4A387E4F25A5EC03004B4335 /* Main.storyboard in Resources */,
 			);
@@ -364,7 +369,6 @@
 				4A387E4825A5EC03004B4335 /* AppDelegate.swift in Sources */,
 				4A84AFBC25AB112F008AD593 /* PlayerModel.swift in Sources */,
 				4ACEAD3225A8659C00384604 /* BaseBlueButton.swift in Sources */,
-				4ACEAD4225A866B300384604 /* BackgroundSound.swift in Sources */,
 				4ACEAD3C25A865EB00384604 /* BaseDarkBlueLabel.swift in Sources */,
 				4A84AFB425AAA20F008AD593 /* ToolbarPickerView.swift in Sources */,
 				4A387E4A25A5EC03004B4335 /* SceneDelegate.swift in Sources */,

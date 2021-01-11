@@ -7,8 +7,10 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 extension UIViewController {
+    
     func eveningHushBlueBackground() {
         // View Controller Background Color
         // Red: 119 - Green: 141 - Blue: 169 - EVENING HUSH BLUE
@@ -28,4 +30,9 @@ extension UIViewController {
         }
     }
     
+    func showInteractiveAlert(title: String, message: String) {
+        let interactiveAlert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        interactiveAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(interactiveAlert, animated: true)
+    }
 }

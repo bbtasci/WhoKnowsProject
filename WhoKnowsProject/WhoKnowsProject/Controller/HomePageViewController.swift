@@ -11,6 +11,7 @@ class HomePageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
+    @IBOutlet weak var howToPlayInformationButton: UIButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var informationLabel: BaseLightBlueLabel!
     @IBOutlet weak var goToQuizButton: BaseBlueButton!
@@ -34,6 +35,7 @@ class HomePageViewController: BaseFadedBlueViewController {
         prepareNavigationItems(title: "WHO KNOWS", backButtonTitle: "Home")
     }
     func prepareLayers() {
+        howToPlayInformationButton.tintColor = .white
         logoImageView.image = UIImage(named: "WhoKnows-OpeningLabel")
         
         informationLabel.prepareLabel()
@@ -50,6 +52,11 @@ class HomePageViewController: BaseFadedBlueViewController {
     }
     
     // MARK: - ACTIONS
+    
+    @IBAction func howToPlayInformationButtonTouched(_ sender: Any) {
+        showInteractiveAlert(title: "HOW TO PLAY", message: "You have 10 seconds to answer. \n You may get questions as far as you answer right.")
+    }
+    
     
     @IBAction func goToQuizButtonTouched(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
