@@ -20,6 +20,7 @@
 		4A84AFBC25AB112F008AD593 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84AFBB25AB112F008AD593 /* PlayerModel.swift */; };
 		4A84AFC425AB1A46008AD593 /* incorrect-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */; };
 		4A84AFC525AB1A46008AD593 /* correct-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */; };
+		4A8CE4E825AEEB190025162A /* HighScoreListConveyor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CE4E725AEEB190025162A /* HighScoreListConveyor.swift */; };
 		4A8F167425A6E21700CC979F /* HighScorePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167325A6E21700CC979F /* HighScorePageViewController.swift */; };
 		4A8F167725A6E22800CC979F /* AppSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167625A6E22800CC979F /* AppSettingsPageViewController.swift */; };
 		4A8F167A25A6E23D00CC979F /* QuizSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F167925A6E23D00CC979F /* QuizSettingsPageViewController.swift */; };
@@ -56,8 +57,9 @@
 		4A84AFB625AB0EBD008AD593 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
 		4A84AFB725AB0EBD008AD593 /* HighScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreTableViewCell.xib; sourceTree = "<group>"; };
 		4A84AFBB25AB112F008AD593 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
-		4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "incorrect-sound.wav"; path = "../../../incorrect-sound.wav"; sourceTree = "<group>"; };
-		4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "correct-sound.mp3"; path = "../../../correct-sound.mp3"; sourceTree = "<group>"; };
+		4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "incorrect-sound.wav"; sourceTree = "<group>"; };
+		4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "correct-sound.mp3"; sourceTree = "<group>"; };
+		4A8CE4E725AEEB190025162A /* HighScoreListConveyor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreListConveyor.swift; sourceTree = "<group>"; };
 		4A8F167325A6E21700CC979F /* HighScorePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScorePageViewController.swift; sourceTree = "<group>"; };
 		4A8F167625A6E22800CC979F /* AppSettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsPageViewController.swift; sourceTree = "<group>"; };
 		4A8F167925A6E23D00CC979F /* QuizSettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSettingsPageViewController.swift; sourceTree = "<group>"; };
@@ -74,8 +76,8 @@
 		4ACEAD3825A865DC00384604 /* BaseLightBlueLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLightBlueLabel.swift; sourceTree = "<group>"; };
 		4ACEAD3B25A865EB00384604 /* BaseDarkBlueLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDarkBlueLabel.swift; sourceTree = "<group>"; };
 		4ACEAD3E25A8660C00384604 /* BaseFadedBlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFadedBlueViewController.swift; sourceTree = "<group>"; };
-		4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "timeout-sound.mp3"; path = "../../../timeout-sound.mp3"; sourceTree = "<group>"; };
-		4AE0601525AC34D000B20A89 /* bg-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music.mp3"; path = "../../../bg-music.mp3"; sourceTree = "<group>"; };
+		4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "timeout-sound.mp3"; sourceTree = "<group>"; };
+		4AE0601525AC34D000B20A89 /* bg-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bg-music.mp3"; sourceTree = "<group>"; };
 		4AE0601E25AC4F4500B20A89 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		845DFA0895146FA6871A9842 /* Pods_WhoKnowsProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoKnowsProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE38DF0D44CCFA768A018259 /* Pods-WhoKnowsProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoKnowsProject.release.xcconfig"; path = "Target Support Files/Pods-WhoKnowsProject/Pods-WhoKnowsProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,12 +203,10 @@
 		4ACEAD2B25A8366200384604 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */,
-				4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */,
-				4AE0601525AC34D000B20A89 /* bg-music.mp3 */,
-				4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */,
+				4AE0602225AC72EF00B20A89 /* Sounds */,
 				4AE0601E25AC4F4500B20A89 /* SoundHelper.swift */,
 				4A84AFB325AAA20F008AD593 /* ToolbarPickerView.swift */,
+				4A8CE4E725AEEB190025162A /* HighScoreListConveyor.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -222,6 +222,17 @@
 				4A9EC33A25A87DE10095F54E /* BaseTextField.swift */,
 			);
 			path = "Base Components";
+			sourceTree = "<group>";
+		};
+		4AE0602225AC72EF00B20A89 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4AE0601225AC2BE000B20A89 /* timeout-sound.mp3 */,
+				4A84AFC325AB1A46008AD593 /* correct-sound.mp3 */,
+				4AE0601525AC34D000B20A89 /* bg-music.mp3 */,
+				4A84AFC225AB1A46008AD593 /* incorrect-sound.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		84B184D2FFA7E004E5CEF5FF /* Pods */ = {
@@ -371,6 +382,7 @@
 				4A8F167A25A6E23D00CC979F /* QuizSettingsPageViewController.swift in Sources */,
 				4A84AFB825AB0EBD008AD593 /* HighScoreTableViewCell.swift in Sources */,
 				4A387E4825A5EC03004B4335 /* AppDelegate.swift in Sources */,
+				4A8CE4E825AEEB190025162A /* HighScoreListConveyor.swift in Sources */,
 				4A84AFBC25AB112F008AD593 /* PlayerModel.swift in Sources */,
 				4ACEAD3225A8659C00384604 /* BaseBlueButton.swift in Sources */,
 				4ACEAD3C25A865EB00384604 /* BaseDarkBlueLabel.swift in Sources */,

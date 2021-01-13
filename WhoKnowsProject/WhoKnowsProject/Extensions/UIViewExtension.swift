@@ -30,8 +30,8 @@ extension UIView {
     
     func nightWhiteButton() {
         // Answer Buttons
-        // Red:224 - Green:225 - Blue:221 - NIGHT WHITE BLUE
-        self.backgroundColor = UIColor(red: CGFloat(13/255.0), green: CGFloat(27/255.0), blue: CGFloat(42/255.0), alpha: CGFloat(1.0))
+        // Red:224 - Green:225 - Blue:221 - NIGHT WHITE
+        self.backgroundColor = UIColor(red: CGFloat(224/255.0), green: CGFloat(225/255.0), blue: CGFloat(221/255.0), alpha: CGFloat(1.0))
     }
     
     // MARK: - LABEL

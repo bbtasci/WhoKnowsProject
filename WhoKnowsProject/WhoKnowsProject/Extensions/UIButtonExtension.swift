@@ -13,6 +13,8 @@ extension UIButton {
     func setButtonTitle(title: String) {
         self.setTitle(title, for: .normal)
     }
+    
+    
 /*
     func isTrappedDarknessBlueButton(title: String) {
         // Buttons

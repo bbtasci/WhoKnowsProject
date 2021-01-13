@@ -32,20 +32,16 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     
     // MARK: - PREPARE UI
     
-    func prepareUI() {
+    fileprivate func prepareUI() {
         prepareLayers()
         prepareNavigationItems(title: "SETTINGS", backButtonTitle: "Home")
     }
     
-    func prepareLayers() {
+    fileprivate func prepareLayers() {
         soundLabel.prepareLabel()
         soundLabel.setLabelText(text: " Sound")
         resetSettingsButton.prepareBlueButton()
         resetSettingsButton.setButtonTitle(title: "RESET TO DEFAULTS")
-    }
-    
-    func checkSwitchStatus() {
-        
     }
     
     // MARK: - ACTIONS
@@ -53,7 +49,7 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
     @IBAction func soundSwitchChanged(_ sender: Any) {
         //UserDefaults.standard.set((sender as AnyObject).isOn, forKey: "switchState")
         if soundSwitch.isOn {
-            SoundHelper.sharedInstance.continueMusic()
+            SoundHelper.sharedInstance.continueBGMusic()
         } else {
             SoundHelper.sharedInstance.stopBGMusic()
         }
@@ -61,6 +57,6 @@ class AppSettingsPageViewController: BaseFadedBlueViewController {
 
     @IBAction func resetSettingsButtonTouched(_ sender: Any) {
         soundSwitch.setOn(true, animated: true)
-        SoundHelper.sharedInstance.continueMusic()
+        SoundHelper.sharedInstance.continueBGMusic()
     }
 }

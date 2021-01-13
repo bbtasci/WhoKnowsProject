@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class QuizSettingsPageViewController: BaseFadedBlueViewController {
+final class QuizSettingsPageViewController: BaseFadedBlueViewController {
     
     // MARK: - OUTLETS
     
@@ -41,14 +41,14 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
     
     // MARK: - PREPARE UI
     
-    func prepareUI() {
+    fileprivate func prepareUI() {
         prepareLayers()
         prepareCategoryPickerView()
         prepareDifficultyPickerView()
         prepareNavigationItems(title: "QUIZ SETTINGS", backButtonTitle: "Quiz Settings")
     }
     
-    func prepareLayers() {
+    fileprivate func prepareLayers() {
         newGameInfoLabel.prepareLabel()
         newGameInfoLabel.setLabelText(text: "You are about to start. \n Pick the best options for you.")
         
@@ -74,7 +74,7 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
         startButton.setButtonTitle(title: "START")
     }
     
-    func prepareCategoryPickerView() {
+    fileprivate func prepareCategoryPickerView() {
         getCategoryFromAPI() // Update categories list by API
         categoryPickerView.tag = 1
         categoryTextField.inputView = categoryPickerView
@@ -84,7 +84,7 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
         categoryPickerView.toolbarForCategoryDelegate = self
     }
     
-    func prepareDifficultyPickerView() {
+    fileprivate func prepareDifficultyPickerView() {
         difficultyPickerView.tag = 2
         difficultyTextField.inputView = difficultyPickerView
         difficultyTextField.inputAccessoryView = difficultyPickerView.toolbarForDifficulty
@@ -96,7 +96,7 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
     
     // MARK: - SERVICE CALL
     
-    func getCategoryFromAPI() {
+    fileprivate func getCategoryFromAPI() {
         AF.request("https://opentdb.com/api_category.php").responseJSON { response in
             if let categoryData = response.data {
                 let triviaCategoriesList = try! JSONDecoder().decode(CategoryModel.self, from: categoryData)
@@ -122,7 +122,7 @@ class QuizSettingsPageViewController: BaseFadedBlueViewController {
             quizPageViewController.pickedCategoryId = selectedCategoryId ?? 0
             quizPageViewController.pickedCategoryName = categoryTextField.text ?? ""
             quizPageViewController.pickedDifficulty = difficultyTextField.text?.lowercased() ?? ""
-            quizPageViewController.playerName = nameTextField.text ?? ""
+            quizPageViewController.player.name = nameTextField.text ?? ""
             self.navigationController?.pushViewController(quizPageViewController, animated: true)
         }
     }

@@ -11,14 +11,13 @@ import AVFoundation
 
 extension UIViewController {
     
-    func eveningHushBlueBackground() {
-        // View Controller Background Color
-        // Red: 119 - Green: 141 - Blue: 169 - EVENING HUSH BLUE
-        self.view.backgroundColor = UIColor( red: CGFloat(119/255.0), green: CGFloat(141/255.0), blue: CGFloat(169/255.0), alpha: CGFloat(1.0))
-    }
+  // MARK: - NAVIGATION BAR COLOR
+    
     func blueNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(13/255.0), green: CGFloat(27/255.0), blue: CGFloat(42/255.0), alpha: CGFloat(1.0))
     }
+    
+    // MARK: - ALERTS
     
     func showTemporarilyAlert(title: String, message: String, duration: Int) {
         let durationOfAlert = DispatchTime.now() + .seconds(duration)

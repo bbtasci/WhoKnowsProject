@@ -29,19 +29,7 @@ class SoundHelper {
         }
     }
     
-    func soundSwitchControl() {
-        if audioPlayer.isPlaying {
-            stopBGMusic()
-        } else {
-            audioPlayer.play()
-        }
-    }
-    
-    func continueMusic() {
-        if audioPlayer.isPlaying {
-            audioPlayer.play()
-        } else {
-            audioPlayer.play()
-        }
+    func continueBGMusic() {
+        audioPlayer.play()
     }
 }

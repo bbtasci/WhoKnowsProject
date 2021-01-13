@@ -28,9 +28,9 @@ class HighScoreTableViewCell: UITableViewCell {
     
     // MARK: - METHODS
     
-    func setCell(player: Player) {
+    func setCell(player: PlayerModel) {
         cellNameLabel.text = player.name
-        cellScoreLabel.text = "\(player.gameScore)"
+        cellScoreLabel.text = "\(player.score)"
         cellDateLabel.text = player.dateOfPlay
    }
     

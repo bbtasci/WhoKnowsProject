@@ -7,12 +7,8 @@
 
 import Foundation
 
-class PlayerModel {
-    var player = [Player]()
-}
-
-class Player {
+class PlayerModel: Codable {
     var name: String = ""
-    var gameScore: String = "0"
+    var score: Int = 0
     var dateOfPlay: String = ""
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScorePageViewController: BaseFadedBlueViewController {
+final class ScorePageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
@@ -22,8 +22,7 @@ class ScorePageViewController: BaseFadedBlueViewController {
 
     // MARK: - PROPERTIES
     
-    var newPlayer = [PlayerModel]()
-    var playerName: String = ""
+    var player = PlayerModel()
     var totalPoints: Int = 0
     var totalTrueNumbers: Int = 0
     
@@ -32,24 +31,26 @@ class ScorePageViewController: BaseFadedBlueViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
+        checkHighScore()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         totalPointsLabel.text = String(totalPoints)
         trueNumberLabel.text = String(totalTrueNumbers)
-        playerNameLabel.setLabelText(text: "\(playerName)")
+        playerNameLabel.setLabelText(text: "\(player.name)")
     }
     
     // MARK: - PREPARE UI
     
-    func prepareUI() {
+    fileprivate func prepareUI() {
         prepareLayers()
-        prepareNavigationItems(title: "YOUR SCORE", backButtonTitle: "QUIZ")
+        setDateForPlayer()
+        //prepareNavigationItems(title: "YOUR SCORE", backButtonTitle: "QUIZ")
         navigationItem.hidesBackButton = true
     }
     
-    func prepareLayers() {
+    fileprivate func prepareLayers() {
         titleLabel.prepareLabel()
         titleLabel.setLabelText(text: "END OF THE QUIZ")
         
@@ -67,11 +68,55 @@ class ScorePageViewController: BaseFadedBlueViewController {
         
         goToHomePageButton.prepareBlueButton()
         goToHomePageButton.setButtonTitle(title: "GO TO HOMEPAGE")
-        
     }
     
-    func saveScore() {
+    fileprivate func setDateForPlayer() {
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        player.dateOfPlay = formatter.string(from: today)
+    }
+    
+    // MARK: - METHODS
+    
+    fileprivate func checkHighScore() {
         
+        if HighScoreListConveyor.shared.highScoreList.count < 6 {
+            HighScoreListConveyor.shared.highScoreList.append(player)
+            highscoreAlert()
+        } else {
+            if player.score > HighScoreListConveyor.shared.highScoreList[0].score {
+                HighScoreListConveyor.shared.highScoreList.removeLast()
+                HighScoreListConveyor.shared.highScoreList.insert(player, at: 0)
+                highestScoreAlert()
+            } else if player.score > HighScoreListConveyor.shared.highScoreList[1].score {
+                HighScoreListConveyor.shared.highScoreList.removeLast()
+                HighScoreListConveyor.shared.highScoreList.insert(player, at: 1)
+                highscoreAlert()
+            } else if player.score > HighScoreListConveyor.shared.highScoreList[2].score {
+                HighScoreListConveyor.shared.highScoreList.removeLast()
+                HighScoreListConveyor.shared.highScoreList.insert(player, at: 2)
+                highscoreAlert()
+            } else if player.score > HighScoreListConveyor.shared.highScoreList[3].score {
+                HighScoreListConveyor.shared.highScoreList.removeLast()
+                HighScoreListConveyor.shared.highScoreList.insert(player, at: 3)
+                highscoreAlert()
+            } else if player.score > HighScoreListConveyor.shared.highScoreList[4].score {
+                HighScoreListConveyor.shared.highScoreList.removeLast()
+                HighScoreListConveyor.shared.highScoreList.insert(player, at: 4)
+                highscoreAlert()
+            } else {
+                showTemporarilyAlert(title: "TRY AGAIN", message: "You could not make it to be in High Score", duration: 3)
+            }
+        }
+    }
+    
+    fileprivate func highestScoreAlert() {
+        showTemporarilyAlert(title: "CONGRATULATIONS", message: "Your score is the highest ever!", duration: 3)
+    }
+    
+    fileprivate func highscoreAlert() {
+        showTemporarilyAlert(title: "CONGRATULATIONS", message: "You can see yourself in High Score List!", duration: 3)
     }
     
     // MARK: - ACTIONS

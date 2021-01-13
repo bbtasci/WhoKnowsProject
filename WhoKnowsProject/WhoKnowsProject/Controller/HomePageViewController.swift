@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomePageViewController: BaseFadedBlueViewController {
+final class HomePageViewController: BaseFadedBlueViewController {
 
     // MARK: - OUTLETS
     
@@ -31,11 +31,12 @@ class HomePageViewController: BaseFadedBlueViewController {
   
     // MARK: - PREPARE UI
     
-    func prepareUI() {
+    fileprivate func prepareUI() {
         prepareLayers()
         prepareNavigationItems(title: "WHO KNOWS", backButtonTitle: "Home")
+        navigationItem.hidesBackButton = true
     }
-    func prepareLayers() {
+    fileprivate func prepareLayers() {
         howToPlayInformationButton.tintColor = .white
         logoImageView.image = UIImage(named: "WhoKnows-OpeningLabel")
         
